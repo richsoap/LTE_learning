@@ -1,0 +1,7 @@
+TestModule DEFINITIONS ::= BEGIN
+	Circle ::= SEQUENCE {
+		position-x INTEGER,
+		position-y INTEGER,
+		radius INTEGER(0..MAX)
+	}
+END

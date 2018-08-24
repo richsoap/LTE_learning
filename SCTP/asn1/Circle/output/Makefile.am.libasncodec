@@ -1,0 +1,67 @@
+ASN_MODULE_SRCS=	\
+	output/Circle.c
+
+ASN_MODULE_HDRS=	\
+	output/Circle.h
+
+ASN_MODULE_HDRS+=output/OPEN_TYPE.h
+ASN_MODULE_SRCS+=output/OPEN_TYPE.c
+ASN_MODULE_HDRS+=output/constr_CHOICE.h
+ASN_MODULE_HDRS+=output/INTEGER.h
+ASN_MODULE_SRCS+=output/INTEGER.c
+ASN_MODULE_HDRS+=output/NativeInteger.h
+ASN_MODULE_SRCS+=output/NativeInteger.c
+ASN_MODULE_SRCS+=output/constr_CHOICE.c
+ASN_MODULE_HDRS+=output/constr_SEQUENCE.h
+ASN_MODULE_SRCS+=output/constr_SEQUENCE.c
+ASN_MODULE_HDRS+=output/asn_application.h
+ASN_MODULE_SRCS+=output/asn_application.c
+ASN_MODULE_HDRS+=output/asn_ioc.h
+ASN_MODULE_HDRS+=output/asn_system.h
+ASN_MODULE_HDRS+=output/asn_codecs.h
+ASN_MODULE_HDRS+=output/asn_internal.h
+ASN_MODULE_SRCS+=output/asn_internal.c
+ASN_MODULE_HDRS+=output/asn_random_fill.h
+ASN_MODULE_SRCS+=output/asn_random_fill.c
+ASN_MODULE_HDRS+=output/asn_bit_data.h
+ASN_MODULE_SRCS+=output/asn_bit_data.c
+ASN_MODULE_HDRS+=output/OCTET_STRING.h
+ASN_MODULE_SRCS+=output/OCTET_STRING.c
+ASN_MODULE_HDRS+=output/BIT_STRING.h
+ASN_MODULE_SRCS+=output/BIT_STRING.c
+ASN_MODULE_SRCS+=output/asn_codecs_prim.c
+ASN_MODULE_HDRS+=output/asn_codecs_prim.h
+ASN_MODULE_HDRS+=output/ber_tlv_length.h
+ASN_MODULE_SRCS+=output/ber_tlv_length.c
+ASN_MODULE_HDRS+=output/ber_tlv_tag.h
+ASN_MODULE_SRCS+=output/ber_tlv_tag.c
+ASN_MODULE_HDRS+=output/ber_decoder.h
+ASN_MODULE_SRCS+=output/ber_decoder.c
+ASN_MODULE_HDRS+=output/der_encoder.h
+ASN_MODULE_SRCS+=output/der_encoder.c
+ASN_MODULE_HDRS+=output/constr_TYPE.h
+ASN_MODULE_SRCS+=output/constr_TYPE.c
+ASN_MODULE_HDRS+=output/constraints.h
+ASN_MODULE_SRCS+=output/constraints.c
+ASN_MODULE_HDRS+=output/xer_support.h
+ASN_MODULE_SRCS+=output/xer_support.c
+ASN_MODULE_HDRS+=output/xer_decoder.h
+ASN_MODULE_SRCS+=output/xer_decoder.c
+ASN_MODULE_HDRS+=output/xer_encoder.h
+ASN_MODULE_SRCS+=output/xer_encoder.c
+ASN_MODULE_HDRS+=output/per_support.h
+ASN_MODULE_SRCS+=output/per_support.c
+ASN_MODULE_HDRS+=output/per_decoder.h
+ASN_MODULE_SRCS+=output/per_decoder.c
+ASN_MODULE_HDRS+=output/per_encoder.h
+ASN_MODULE_SRCS+=output/per_encoder.c
+ASN_MODULE_HDRS+=output/per_opentype.h
+ASN_MODULE_SRCS+=output/per_opentype.c
+
+ASN_MODULE_CFLAGS=-DASN_DISABLE_OER_SUPPORT 
+
+lib_LTLIBRARIES+=libasncodec.la
+libasncodec_la_SOURCES=$(ASN_MODULE_SRCS) $(ASN_MODULE_HDRS)
+libasncodec_la_CPPFLAGS=-I$(top_srcdir)/output/
+libasncodec_la_CFLAGS=$(ASN_MODULE_CFLAGS)
+libasncodec_la_LDFLAGS=-lm
